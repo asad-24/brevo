@@ -27,6 +27,7 @@ import zenat from "../assets/zinat_technologies-300x122-1.webp"
 import group22 from "../assets/groupe22-300x122-1.webp"
 import lisaLp from "../assets/lp_media-300x122-1.webp"
 import abloom from "../assets/adbloom-300x122-1.webp"
+import { useEffect, useRef } from "react";
 const MainPage = () => {
    function DefaultRating() {
     return <Rating value={4} />;
@@ -75,7 +76,24 @@ const MainPage = () => {
   ];
 
 
- 
+  const scrollableRef = useRef(null);
+
+  useEffect(() => {
+    const handleWindowScroll = () => {
+      const scrollPosition = window.scrollX;
+      scrollableRef.current.scrollLeft = scrollPosition;
+    };
+
+    window.addEventListener('scroll', handleWindowScroll);
+
+  
+    return () => window.removeEventListener('scroll', handleWindowScroll);
+  }, []);
+
+
+  
+  const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
+
   return (
     <>
       <Header />
@@ -110,41 +128,25 @@ const MainPage = () => {
         </div>
       </div>
       {/* Features Section */}
-      <div
-        className="mx-auto my-6 max-w-9xl px-4 sm:px-6 md:my-24 lg:my-12 lg:px-8"
-        style={{ border: "2px solid red" }}
-      >
-        <div className="mx-auto max-w-xxl text-center">
-          <div className="mx-auto inline-flex   px-4 py-1.5">
-            <p className="mt-4 text-base leading-relaxed text-gray-600">
-              Join 500,000+ customers around the world who trust Brevo
-            </p>
-          </div>
-          <div
-            className="mt-5 grid grid-cols-12 gap-x-20 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-6 "
-            style={{ border: "2px solid red" }}
-          >
-            <div className="mx-auto flex h-20 w-20 items-center justify-center  ">
-              <img src={logo1} alt="Amnesty" />
+      <div className="mx-auto my-6 max-w-9xl px-4 sm:px-6 md:my-24 lg:my-12 lg:px-8">
+      <div className="mx-auto max-w-xxl text-center">
+        <div className="mx-auto inline-flex px-4 py-1.5">
+          <p className="mt-4 text-base leading-relaxed text-gray-600">
+            Join 500,000+ customers around the world who trust Brevo
+          </p>
+        </div>
+        <div
+          className="mt-5 grid grid-cols-6 md:gap-x-20 gap-x-40 text-center sm:grid-cols-6 md:grid-cols-6 md:w-[90%] mx-auto overflow-x-auto scrollbar-thin"
+          ref={scrollableRef}
+        >
+          {logos.map((logo, index) => (
+            <div key={index} className="mx-auto flex h-20 w-20 items-center justify-center">
+              <img src={logo} alt={`Logo ${index + 1}`} />
             </div>
-            <div className="mx-auto flex h-20 w-20 items-center justify-center  ">
-              <img src={logo2} alt="Amnesty" />
-            </div>
-            <div className="mx-auto flex h-20 w-20 items-center justify-center  ">
-              <img src={logo3} alt="Amnesty" />
-            </div>
-            <div className="mx-auto flex h-20 w-20 items-center justify-center  ">
-              <img src={logo4} alt="Amnesty" />
-            </div>
-            <div className="mx-auto flex h-20 w-20 items-center justify-center  ">
-              <img src={logo5} alt="Amnesty" />
-            </div>
-            <div className="mx-auto flex h-20 w-20 items-center justify-center  ">
-              <img src={logo6} alt="Amnesty" />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
 
       {/* Cards */}
    <div className="flex flex-wrap justify-center gap-6 ">
@@ -315,14 +317,14 @@ const MainPage = () => {
       </div>
 
   {/*company's logos*/}
-  <div className="mx-auto my-6 max-w-6xl px-4 sm:px-6 md:my-24 lg:my-12 lg:px-8 flex flex-wrap justify-evenly" style={{border:"2px solid red"}}>
+  <div className="mx-auto my-6 max-w-6xl px-4 sm:px-6 md:my-24 lg:my-12 lg:px-8 flex flex-wrap justify-evenly" >
   {/* Left Box */}
   <div className="w-full lg:w-auto lg:flex-1 lg:mr-4">
     <div className="text-center">
       <div className="inline-flex px-4 py-1.5">
         <p className="mt-4 text-base leading-relaxed text-gray-600">Awarded for excellence</p>
       </div>
-      <div className="flex flex-wrap md:gap-x-10  gap-x-10 gap-y-10 mx-auto mt-5 justify-center w-[75%]" style={{border:"2px solid red"}}>
+      <div className="flex flex-wrap md:gap-x-10  gap-x-10 gap-y-10 mx-auto mt-5 justify-center w-[75%]" >
         <img className="h-20 w-20" src={bestLogo} alt="Best Logo" />
         <img className="h-20 w-20" src={martechLogo} alt="Martech Logo" />
         <img className="h-20 w-20 " src={sammy} alt="Sammy Logo" />
