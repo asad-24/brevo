@@ -3,6 +3,7 @@
 import './App.css'
 import Header from "./Header/Header.jsx";
 import MainPage from './components/MainPage.jsx';
+import ConnectedTool from './components/connectTools/ConnectedTool.jsx';
 import Footer from './components/footer/Footer.jsx';
 
 
@@ -16,7 +17,8 @@ function App() {
  {/* <Header/> */}
  {/* <MainPage/> */}
  {/* <NavbarWithMegaMenu/> */}
- <Footer/>
+ {/* <Footer/> */}
+ <ConnectedTool/>
 
  </>
   )
