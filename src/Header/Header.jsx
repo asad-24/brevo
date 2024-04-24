@@ -545,7 +545,7 @@ const Header = () => {
   }, []);
 
   return (
-    <Navbar className="mx-auto w-full px-3  bg-[#D7FEC8] "  >
+    <Navbar className="mx-auto w-full px-3  bg-[#D7FEC8]  "  >
       <div className="flex items-center justify-between text-blue-gray-900 h-[100px]">
         <div className="md:w-[16%] w-[40%]">
           <img src={hellaLogo1} className="" alt="logo" />
