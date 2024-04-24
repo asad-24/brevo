@@ -73,7 +73,7 @@ const Footer = () => {
       
   return (
     <>
-       <section className="relative overflow-hidden bg-white py-8">
+       <section className="relative overflow-hidden bg-[#F9FFF6] py-8">
       <div className="container relative z-10 mx-auto px-4">
         <div className="-m-8 flex flex-wrap items-center justify-between">
           <div className="w-auto p-8">
@@ -129,11 +129,12 @@ const Footer = () => {
         </div>
       </div>
     </section>
-    <footer className="w-full">
+    <footer className="w-full bg-[#F9FFF6]">
       <div className="mx-auto flex max-w-7xl flex-col items-start space-x-8 md:flex-row px-6" >
      
         <div className="mt-8 grid grid-cols-2 gap-4 md:mt-0 lg:w-full md:grid-cols-5">
         {sections.map((section, index) => (
+          
   <div key={index} className="mb-8 lg:mb-0 " >
     <p className="mb-6 text-lg font-semibold text-gray-700">{section.title}</p>
     <ul className="flex flex-col space-y-4 text-[14px] font-medium text-gray-500">
