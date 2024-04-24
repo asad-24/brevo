@@ -3,7 +3,7 @@ import { FaLinkedin } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-import hellaLogo1 from "../../assets/hella logo bg-white.png";
+import hellaLogo1 from "../assets/hella logo bg-white.png";
 const Footer = () => {
     const sections = [
         {
